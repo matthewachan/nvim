@@ -56,4 +56,10 @@ require("barbar").setup({
     Outline = {event = 'BufWinLeave', text = 'symbols-outline', align = 'right'},
   },
   maximum_length = 25, -- Sets the maximum buffer name length.
+  sort = {
+		  ignore_case = true,
+		  sorter = function(buf_a, buf_b)
+				  return buf_a.opened < buf_b.opened
+		  end,
+  },
 })

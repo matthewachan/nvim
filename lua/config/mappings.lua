@@ -10,8 +10,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- buffers
-map("n", "<S-l>", ":bnext<CR>")
-map("n", "<S-h>", ":bprevious<CR>")
+map("n", "<S-l>", ":BufferNext<CR>")
+map("n", "<S-h>", ":BufferPrevious<CR>")
 map("n", "<leader>q", ":BufferClose<CR>")
 map("n", "<leader>Q", ":BufferClose!<CR>")
 -- map("n", "<leader>U", "::bufdo bd<CR>") --close all
@@ -44,8 +44,8 @@ map("n", "<C-l>", "<C-w>l")
 
 -- fzf and grep
 map("n", "<leader>f", ":lua require('fzf-lua').files()<CR>") --search cwd
--- map("n", "<leader>Fh", ":lua require('fzf-lua').files({ cwd = '~/' })<CR>") --search home
--- map("n", "<leader>Fc", ":lua require('fzf-lua').files({ cwd = '~/.config' })<CR>") --search .config
+map("n", "<leader>Fh", ":lua require('fzf-lua').files({ cwd = '~/' })<CR>") --search home
+map("n", "<leader>Fc", ":lua require('fzf-lua').files({ cwd = '~/.config' })<CR>") --search .config
 -- map("n", "<leader>Fl", ":lua require('fzf-lua').files({ cwd = '~/.local/src' })<CR>") --search .local/src
 -- map("n", "<leader>Ff", ":lua require('fzf-lua').files({ cwd = '..' })<CR>") --search above
 -- map("n", "<leader>Fr", ":lua require('fzf-lua').resume()<CR>") --last search
@@ -58,16 +58,27 @@ map("n", "<leader>e", ":NvimTreeToggle<CR>") --open file explorer
 map("n", "<leader>p", switch_theme) --cycle themes
 map("n", "<leader>P", ":PlugInstall<CR>") --vim-plug
 map("n", "<leader>z", ":lua require('FTerm').open()<CR>") --open term
--- map("t", "<Esc>", '<C-\\><C-n><CMD>lua require("FTerm").close()<CR>') --preserves session
+map("t", "<Esc>", '<C-\\><C-n><CMD>lua require("FTerm").close()<CR>') --preserves session
 map("n", "<leader>w", ":w<CR>") --write but one less key
+map("n", "<leader>R", ":so %<CR>") --reload neovim config
+map("v", "<leader>i", "=gv") --auto indent
+map("n", "<leader>tw", ":set wrap!<CR>") --toggle wrap
+map("n", "<leader>td", ":Twilight<CR>") --toggle surrounding dim
+local function conform()
+  require("conform").format({ async = true })
+end
+map("n", "<leader>=", conform) --format buffer
+
+
+-- docstrings
+local opts = { noremap = true, silent = true }
+map("n", "<Leader>nd", ":lua require('neogen').generate()<CR>", opts)
+-- map("n", "<Leader>nc", ":lua require('neogen').generate({type='class'})<CR>", opts)
+
 -- map("n", "<leader>d", ":w ") --duplicate to new name
 -- map("n", "<leader>x", "<cmd>!chmod +x %<CR>") --make a file executable
 -- map("n", "<leader>mv", ":!mv % ") --move a file to a new dir
-map("n", "<leader>R", ":so %<CR>") --reload neovim config
 -- map("n", "<leader>u", ':silent !xdg-open "<cWORD>" &<CR>') --open a url under cursor
-map("v", "<leader>i", "=gv") --auto indent
-map("n", "<leader>tw", ":set wrap!<CR>") --toggle wrap
-map("n", "<leader>td", ":Twilight<CR>") --surrounding dim
 
 -- map("n", "<leader>H", function() --toggle htop in term
 -- 	_G.htop:toggle()

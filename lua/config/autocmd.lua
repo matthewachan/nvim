@@ -30,12 +30,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
 --   end,
 -- })
 
--- spellcheck in md
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "markdown",
-	command = "setlocal spell wrap",
-})
-
 -- disable automatic comment on newline
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "*",
@@ -58,16 +52,16 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 --	command = "checktime",
 --})
 
--- restore cursor pos on file open
-vim.api.nvim_create_autocmd("BufReadPost", {
-	pattern = "*",
-	callback = function()
-		local line = vim.fn.line("'\"")
-		if line > 1 and line <= vim.fn.line("$") then
-			vim.cmd("normal! g'\"")
-		end
-	end,
-})
+-- -- restore cursor pos on file open
+-- vim.api.nvim_create_autocmd("BufReadPost", {
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		local line = vim.fn.line("'\"")
+-- 		if line > 1 and line <= vim.fn.line("$") then
+-- 			vim.cmd("normal! g'\"")
+-- 		end
+-- 	end,
+-- })
 
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()

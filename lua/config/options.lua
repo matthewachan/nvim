@@ -43,6 +43,14 @@ for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
+-- Enable inline diagnostics (virtual text)
 vim.diagnostic.config({
-	signs = false,
+  virtual_text = {
+    prefix = '●', -- could be '●', '▎', '→', etc.
+    spacing = 2,
+  },
+  signs = true,      -- show signs in the gutter
+  underline = true,  -- underline problematic code
+  update_in_insert = false, -- don't update while typing
 })
+
