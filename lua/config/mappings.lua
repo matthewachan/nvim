@@ -54,7 +54,7 @@ map("n", "<leader>g", ":lua require('fzf-lua').grep()<CR>") --grep
 
 -- misc
 map("n", "<leader>s", ":%s//g<Left><Left>") --replace all
-map("n", "<leader>t", ":NvimTreeToggle<CR>") --open file explorer
+map("n", "<leader>e", ":NvimTreeToggle<CR>") --open file explorer
 map("n", "<leader>p", switch_theme) --cycle themes
 map("n", "<leader>P", ":PlugInstall<CR>") --vim-plug
 map("n", "<leader>z", ":lua require('FTerm').open()<CR>") --open term
