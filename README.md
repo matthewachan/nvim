@@ -1,4 +1,12 @@
 # **Neovim** configuration
+## Dependencies
+```
+curl -LsSf https://astral.sh/ty/install.sh | sh
+pip install --upgrade pip ipython black isort 
+```
+- ty is used as the Python LSP
+- `black` and `isort` are used for formatting Python imports and code
+
 ## Quickstart with my config:
 ```
 cd ~/.config/ && git clone https://github.com/BreadOnPenguins/nvim
