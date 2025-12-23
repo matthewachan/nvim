@@ -50,6 +50,7 @@ Plug('saghen/blink.cmp', {
 Plug("lervag/vimtex")
 Plug("stevearc/conform.nvim")
 Plug("danymat/neogen")
+Plug("skardyy/neo-img")
 
 vim.call("plug#end")
 
@@ -77,6 +78,7 @@ require("plugins.blink")
 require("plugins.vimtex")
 require("plugins.conform")
 require("plugins.neogen")
+require("plugins.neoimg")
 
 -- vim.defer_fn(function()
 -- 	--defer non-essential configs,
